@@ -40,3 +40,34 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+.repository-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.repository-title {
+  font-size: 1rem;
+}
+
+.statistic {
+  display: flex;
+  align-items: center;
+}
+
+.stars {
+  margin-right: 0.8em;
+}
+
+.shape {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+  border-radius: 50%;
+}
+
+.button-load {
+  margin: 2em 0;
+}
