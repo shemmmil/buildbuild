@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const GET_REPOSITORY = gql`
+export const GET_REPOSITORIES = gql`
   query ($cursor: String, $search_term: String!) {
     search(query: $search_term, type: REPOSITORY, first: 20, after: $cursor) {
       repositoryCount
@@ -34,3 +34,33 @@ export const GET_REPOSITORY = gql`
     }
   }
 `;
+
+export type RepositoryType = {
+  node: {
+    name: string;
+    owner: Owner;
+    stargazers: Stargazers;
+    description: string;
+    languages: Languages;
+  };
+};
+
+export type Owner = {
+  login: string;
+};
+
+export type Stargazers = {
+  totalCount: number;
+};
+
+type Language = {
+  node: {
+    color: string;
+    name: string;
+  };
+};
+
+export type Languages = {
+  totalCount: number;
+  edges: Language[];
+};
