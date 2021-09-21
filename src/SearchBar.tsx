@@ -14,6 +14,11 @@ export const SearchBar = ({ value, onChange }: SearchBarProps) => {
   };
 
   return (
-    <Search placeholder="repository" onChange={onSearchChange} enterButton />
+    <Search
+      placeholder="repository"
+      defaultValue={value}
+      onChange={onSearchChange}
+      enterButton
+    />
   );
 };
