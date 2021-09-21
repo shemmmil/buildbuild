@@ -4,12 +4,13 @@ import { Card, List, Space } from "antd";
 import { useParams } from "react-router-dom";
 
 import { GET_REPOSITORY } from "../../query";
+// @ts-ignore
 import { Spinner, Stars } from "@components";
 import { getLanguages } from "../../helpers/normalizeResponse";
 import { Statistic } from "./components";
 
 export const RepositoryPage = () => {
-  const { slug } = useParams();
+  const { slug }: { slug: string } = useParams();
   const [owner, name, totalLanguage] = parseSlug(slug);
 
   const { loading, error, data } = useQuery(GET_REPOSITORY, {

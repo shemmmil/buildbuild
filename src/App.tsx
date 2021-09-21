@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { apolloClient } from "./config/apollo.client";
 import { RepositoryPage } from "./pages";
+// @ts-ignore
 import { Header } from "@components";
 import "./App.css";
 import { MainPage } from "./pages";

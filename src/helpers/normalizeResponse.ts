@@ -1,6 +1,8 @@
 import { Owner, RepositoryType, Stargazers, Languages } from "../query";
 
-export const normalizeResponse = (response) => {
+type Response = { search: { edges: RepositoryType[] } };
+
+export const normalizeResponse = (response: Response) => {
   const arrayRepos = response.search.edges;
 
   const result = arrayRepos.map((res: RepositoryType) => {
