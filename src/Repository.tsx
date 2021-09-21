@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { useDebounce } from "use-debounce";
 import { Divider, Button } from "antd";
@@ -38,7 +39,10 @@ export const RepositoryList = ({ search }: RepositoryListProps) => {
     <>
       <ul className="repository-list">
         {normalize.map((repo) => (
-          <>
+          <Link
+            to={`repository/${repo.owner}-${repo.name}-${repo.TOTAL_LANGUAGE}`}
+            style={{ color: "inherit" }}
+          >
             <Divider type="horizontal" />
             <Card
               owner={repo.owner}
@@ -47,7 +51,7 @@ export const RepositoryList = ({ search }: RepositoryListProps) => {
               stars={repo.stars}
               language={repo.language}
             />
-          </>
+          </Link>
         ))}
       </ul>
       {normalize.length > 0 && (
@@ -62,7 +66,6 @@ export const RepositoryList = ({ search }: RepositoryListProps) => {
                   },
                 });
               }
-              refetch();
             }}
           >
             Load more
