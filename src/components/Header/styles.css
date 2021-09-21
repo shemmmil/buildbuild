@@ -1,0 +1,128 @@
+:root {
+  --level-1: #9be9a8;
+  --level-2: #40c463;
+  --level-3: #30a14e;
+  --level-4: #216e39;
+}
+
+.header {
+  margin: 0.5em 0 1em;
+  font-size: 1.2em;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-link {
+  color: black;
+}
+
+.header-icon {
+  margin-right: 0.2em;
+}
+
+.box-layout {
+  display: flex;
+  margin-left: 0.4em;
+  align-items: center;
+}
+
+.box {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-top: 2px;
+  margin-right: 3px;
+}
+
+.box-animation-1 {
+  background-color: var(--level-2);
+  animation: animation-1 5s infinite;
+}
+
+.box-animation-2 {
+  background-color: var(--level-1);
+  animation: animation-2 5s infinite;
+}
+
+.box-animation-3 {
+  background-color: var(--level-4);
+  animation: animation-3 5s infinite;
+}
+
+.box-animation-4 {
+  background-color: var(--level-3);
+  animation: animation-4 5s infinite;
+}
+
+@keyframes animation-1 {
+  0% {
+    background-color: var(--level-2);
+  }
+  25% {
+    background-color: var(--level-4);
+  }
+  50% {
+    background-color: var(--level-1);
+  }
+  75% {
+    background-color: var(--level-3);
+  }
+  100% {
+    background-color: var(--level-2);
+  }
+}
+
+@keyframes animation-2 {
+  0% {
+    background-color: var(--level-1);
+  }
+  25% {
+    background-color: var(--level-2);
+  }
+  50% {
+    background-color: var(--level-3);
+  }
+  75% {
+    background-color: var(--level-4);
+  }
+  100% {
+    background-color: var(--level-1);
+  }
+}
+
+@keyframes animation-3 {
+  0% {
+    background-color: var(--level-4);
+  }
+  25% {
+    background-color: var(--level-1);
+  }
+  50% {
+    background-color: var(--level-3);
+  }
+  75% {
+    background-color: var(--level-2);
+  }
+  100% {
+    background-color: var(--level-4);
+  }
+}
+
+@keyframes animation-4 {
+  0% {
+    background-color: var(--level-3);
+  }
+  25% {
+    background-color: var(--level-4);
+  }
+  50% {
+    background-color: var(--level-3);
+  }
+  75% {
+    background-color: var(--level-2);
+  }
+  100% {
+    background-color: var(--level-3);
+  }
+}

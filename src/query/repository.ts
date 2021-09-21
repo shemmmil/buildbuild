@@ -35,6 +35,35 @@ export const GET_REPOSITORIES = gql`
   }
 `;
 
+export const GET_REPOSITORY = gql`
+  query ($name: String!, $owner: String!, $total_language: Int) {
+    repository(name: $name, owner: $owner) {
+      name
+      owner {
+        login
+      }
+      description
+      stargazers {
+        totalCount
+      }
+      pullRequests {
+        totalCount
+      }
+      issues {
+        totalCount
+      }
+      languages(first: $total_language) {
+        edges {
+          node {
+            color
+            name
+          }
+        }
+      }
+    }
+  }
+`;
+
 export type RepositoryType = {
   node: {
     name: string;
@@ -61,6 +90,6 @@ type Language = {
 };
 
 export type Languages = {
-  totalCount: number;
+  totalCount?: number;
   edges: Language[];
 };

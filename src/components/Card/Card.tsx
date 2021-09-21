@@ -1,8 +1,24 @@
 import React from "react";
-import { StarOutlined } from "@ant-design/icons";
-import { Avatar } from "antd";
+import { Stars } from "../Stars";
 
-export const Card = ({ owner, name, description, stars, language }) => {
+export type CardProps = {
+  owner: string;
+  name: string;
+  description: string;
+  stars: number;
+  language: {
+    color: string;
+    name: string;
+  };
+};
+
+export const Card = ({
+  owner,
+  name,
+  description,
+  stars,
+  language,
+}: CardProps) => {
   return (
     <li>
       <div className="repository-title">
@@ -12,10 +28,7 @@ export const Card = ({ owner, name, description, stars, language }) => {
       </div>
       <p>{description}</p>
       <div className="statistic">
-        <div className="stars">
-          <StarOutlined />
-          {stars}
-        </div>
+        <Stars count={stars} />
         <div className="language">
           <span className="shape" style={{ backgroundColor: language.color }} />
           <span>{language.name}</span>

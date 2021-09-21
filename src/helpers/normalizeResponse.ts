@@ -1,5 +1,4 @@
 import { Owner, RepositoryType, Stargazers, Languages } from "../query";
-import { kFormatter } from "./kFormatter";
 
 export const normalizeResponse = (response) => {
   const arrayRepos = response.search.edges;
@@ -7,13 +6,15 @@ export const normalizeResponse = (response) => {
   const result = arrayRepos.map((res: RepositoryType) => {
     const node = res.node;
     const language = getLanguage(node.languages);
+    const TOTAL_LANGUAGE = node.languages.totalCount;
 
     return {
       name: node.name,
       owner: getOwner(node.owner),
-      stars: kFormatter(getStarts(node.stargazers)),
+      stars: getStarts(node.stargazers),
       description: node.description,
       language,
+      TOTAL_LANGUAGE,
     };
   });
   return result;
@@ -31,4 +32,11 @@ const getLanguage = (languages: Languages) => {
   const { name, color } = lang.node;
 
   return { name, color };
+};
+
+export const getLanguages = (languages: Languages) => {
+  return languages.edges.map((language) => ({
+    name: language.node.name,
+    color: language.node.color,
+  }));
 };
