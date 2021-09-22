@@ -1,7 +1,8 @@
 import React, { Dispatch, SetStateAction } from "react";
 
 import { RepositoryList } from "../../Repository";
-import { SearchBar } from "../../SearchBar";
+// @ts-ignore
+import { SearchBar } from "@components";
 
 export type MainPageProps = {
   searchTerm: string;
