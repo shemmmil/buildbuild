@@ -32,7 +32,7 @@ export const RepositoryPage = () => {
   const prCount = repository.pullRequests.totalCount;
 
   const languageList = getLanguages(languages);
-  console.log(repository);
+
   return (
     <main>
       <Card title={`${owner}/${name}`}>
