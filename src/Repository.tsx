@@ -14,7 +14,8 @@ type RepositoryListProps = {
 };
 
 export const RepositoryList = ({ search }: RepositoryListProps) => {
-  const [debouncedSearch] = useDebounce(search, 1000);
+  const ONE_SECOND = 1000;
+  const [debouncedSearch] = useDebounce(search, ONE_SECOND);
 
   const { loading, error, data, fetchMore, refetch } = useQuery(
     GET_REPOSITORIES,
