@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery, NetworkStatus } from "@apollo/client";
 import { useDebounce } from "use-debounce";
 import { Divider, Button } from "antd";
 
@@ -17,10 +17,11 @@ export const RepositoryList = ({ search }: RepositoryListProps) => {
   const ONE_SECOND = 1000;
   const [debouncedSearch] = useDebounce(search, ONE_SECOND);
 
-  const { loading, error, data, fetchMore, refetch } = useQuery(
+  const { loading, error, data, fetchMore, refetch, networkStatus } = useQuery(
     GET_REPOSITORIES,
     {
       variables: { search_term: debouncedSearch },
+      notifyOnNetworkStatusChange: true,
     }
   );
 
@@ -28,7 +29,13 @@ export const RepositoryList = ({ search }: RepositoryListProps) => {
     refetch();
   }, [debouncedSearch]);
 
-  if (loading) return <Spinner />;
+  if (loading || networkStatus === NetworkStatus.refetch) {
+    return (
+      <div className="spinner">
+        <Spinner />
+      </div>
+    );
+  }
 
   if (error) return <h1>Error</h1>;
 
