@@ -2,6 +2,10 @@
 
 > Тестовое задание для компании buildbuild
 
+## Демо
+
+[buildbuild](https://buildbuild.vercel.app/)
+
 ## Установка
 
 ```bash
