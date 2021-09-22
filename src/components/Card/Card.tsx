@@ -22,9 +22,7 @@ export const Card = ({
   return (
     <li>
       <div className="repository-title">
-        <a href="#">
-          {owner}/<strong>{name}</strong>
-        </a>
+        {owner}/<strong>{name}</strong>
       </div>
       <p>{description}</p>
       <div className="statistic">
