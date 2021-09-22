@@ -4,10 +4,10 @@ import { useQuery } from "@apollo/client";
 import { useDebounce } from "use-debounce";
 import { Divider, Button } from "antd";
 
-import { GET_REPOSITORIES } from "./query";
-import { normalizeResponse } from "./helpers/normalizeResponse";
-import { Card } from "./components/Card";
-import { Spinner } from "./components/Spinner";
+import { GET_REPOSITORIES } from "../../query";
+import { normalizeResponse } from "../../helpers/normalizeResponse";
+import { Card } from "../../components/Card";
+import { Spinner } from "../../components/Spinner";
 
 type RepositoryListProps = {
   search: string;
@@ -43,6 +43,7 @@ export const RepositoryList = ({ search }: RepositoryListProps) => {
           <Link
             to={`repository/${repo.owner}-${repo.name}-${repo.TOTAL_LANGUAGE}`}
             style={{ color: "inherit" }}
+            key={`${repo.owner}/${repo.name}`}
           >
             <Divider type="horizontal" />
             <Card

@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 
-import { RepositoryList } from "../../Repository";
+import { RepositoryList } from "./Repository";
 // @ts-ignore
 import { SearchBar } from "@components";
 
